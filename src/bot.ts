@@ -12,7 +12,11 @@ export class Bot {
 
     this.client.on('message', (message) => {
       if (message.content === 'ping') {
-        message.author.send('pong')
+        console.log('ping detected')
+        console.log(message.channel)
+        if (message.channel instanceof discord.DMChannel) {
+          message.author.send('pong')
+        }
       }
     })
 
