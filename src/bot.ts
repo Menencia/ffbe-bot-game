@@ -37,15 +37,23 @@ export class Bot {
     this.client.on('message', (message) => {
       if (message.content === '/play') {
         if (message.channel instanceof discord.DMChannel) {
-          console.log(message.author.id)
-          mongoose
-            .model('User')
+          const userModel = mongoose.model('User')
+          userModel
             .where('id', message.author.id)
             .findOne((err, user) => {
-              console.log(err)
-              console.log(user)
+              if (user) {
+                message.author.send('You\'re already playing')
+                console.log(user)
+              } else {
+                userModel.create({
+                  name: message.author.tag,
+                  id: message.author.id,
+                  created: new Date()
+                }).then(() => {
+                  message.author.send('Thank you! You can now play. Enjoy!')
+                })
+              }
             })
-          message.author.send('Not available yet!')
         }
       }
     })
