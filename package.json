@@ -1,0 +1,25 @@
+{
+  "name": "ffbe-bot-game",
+  "version": "0.1.0",
+  "description": "Discord bot for FFBE server",
+  "main": "dist/index.js",
+  "scripts": {
+    "watch": "node_modules/.bin/tsc -w",
+    "build": "node_modules/.bin/tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "Menencia",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leopotam/discord-bot.git"
+  },
+  "devDependencies": {
+    "@types/node": "^10.3.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  },
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
