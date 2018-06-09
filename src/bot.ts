@@ -35,7 +35,7 @@ export class Bot {
     })
 
     this.client.on('message', (message) => {
-      if (message.content === '/play') {
+      if (message.content === 'play') {
         if (message.channel instanceof discord.DMChannel) {
           const userModel = mongoose.model('User')
           userModel
