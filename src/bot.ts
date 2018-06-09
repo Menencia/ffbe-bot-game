@@ -13,7 +13,6 @@ export class Bot {
     this.client.on('message', (message) => {
       if (message.content === 'ping') {
         message.author.send('pong')
-        message.channel.send('pong')
       }
     })
 
