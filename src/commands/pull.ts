@@ -36,6 +36,7 @@ export class PullAction {
         units.push(rawUnits[id])
       }
     }
+    console.log(units)
     return units
   }
 
