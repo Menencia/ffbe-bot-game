@@ -15,7 +15,7 @@ export class PlayAction {
           message.author.send('You\'re already playing')
         } else {
           userModel.create({
-            name: message.author.username,
+            username: message.author.username,
             id: message.author.id,
             created: new Date()
           }).then(() => {

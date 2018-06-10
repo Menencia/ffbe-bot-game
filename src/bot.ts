@@ -20,7 +20,7 @@ export class Bot {
 
       const Schema = mongoose.Schema
       const userSchema = new Schema({
-        name: String,
+        username: String,
         id: String,
         created: Date
       })

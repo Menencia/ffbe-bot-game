@@ -27,9 +27,7 @@ export class InfoAction {
    */
   private buildMsg(user: User) {
     const html = `\`\`\`
-      Username: ${user.username}
-      \`\`\`
-    `
+      Username: ${user.username}\`\`\``
     return html
   }
 
