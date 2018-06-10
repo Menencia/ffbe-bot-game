@@ -4,6 +4,7 @@ import * as mongoose from 'mongoose'
 import { InfoAction } from './commands/info'
 import { PlayAction } from './commands/play'
 import { StopAction } from './commands/stop'
+import { UserModel } from './models/user'
 
 export class Bot {
 
@@ -17,16 +18,7 @@ export class Bot {
     const url = process.env.MONGODB_URI || ''
 
     mongoose.connect(url).then(() => {
-
-      const Schema = mongoose.Schema
-      const userSchema = new Schema({
-        username: String,
-        id: String,
-        created: Date
-      })
-
-      mongoose.model('User', userSchema)
-
+      mongoose.model('User', UserModel.getSchema())
       this.setupDiscord()
     }, (err: MongoError) => console.log(err))
 
