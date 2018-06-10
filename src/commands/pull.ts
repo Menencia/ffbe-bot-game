@@ -7,7 +7,7 @@ export class PullAction {
   public async onMessage(message: Message) {
 
     const units: any[] = await this.getUnits()
-    console.log(units.length)
+    console.log(units)
     message.author.send(`${units.length} units in the pool`)
 
     /*const userModel = mongoose.model('User')
