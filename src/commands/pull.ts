@@ -6,8 +6,9 @@ export class PullAction {
 
   public async onMessage(message: Message) {
 
-    const units = await this.getUnits()
-    console.log(units)
+    const units: any[] = await this.getUnits()
+    console.log(units.length)
+    message.author.send(`${units.length} units in the pool`)
 
     /*const userModel = mongoose.model('User')
     userModel
@@ -22,10 +23,9 @@ export class PullAction {
 
   }
 
-  private getUnits() {
-    fetch('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json')
+  private getUnits(): Promise<any[]> {
+    return fetch('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json')
       .then((res) => res.json())
-      .then((body) => console.log(body))
       .catch((reason) => console.log(reason))
   }
 
