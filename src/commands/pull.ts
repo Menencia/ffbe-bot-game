@@ -25,6 +25,8 @@ export class PullAction {
   private getUnits() {
     fetch('https://raw.githubusercontent.com/aEnigmatic/ffbe/master/units.json')
       .then((res) => res.json())
+      .then((body) => console.log(body))
+      .catch((reason) => console.log(reason))
   }
 
 }
