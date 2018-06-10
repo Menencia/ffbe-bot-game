@@ -17,7 +17,7 @@ export class PlayAction {
           userModel.create({
             username: message.author.username,
             id: message.author.id,
-            lapis: 200,
+            lapis: 300,
             created: new Date()
           }).then(() => {
             message.author.send('You\'re now playing!')
