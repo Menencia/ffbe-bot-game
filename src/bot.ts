@@ -3,6 +3,7 @@ import { MongoError } from 'mongodb'
 import * as mongoose from 'mongoose'
 import { InfoAction } from './commands/info'
 import { PlayAction } from './commands/play'
+import { PullAction } from './commands/pull'
 import { StopAction } from './commands/stop'
 import { UserModel } from './models/user'
 
@@ -33,14 +34,18 @@ export class Bot {
       if (!(message.channel instanceof discord.DMChannel)) {
         return
       }
+      let action
       if (message.content === 'play') {
-        (new PlayAction()).onMessage(message)
+        action = new PlayAction()
+      } else if (message.content === 'stop') {
+        action = new StopAction()
+      } else if (message.content === 'info') {
+        action = new InfoAction()
+      } else if (message.content === 'pull') {
+        action = new PullAction()
       }
-      if (message.content === 'stop') {
-        (new StopAction()).onMessage(message)
-      }
-      if (message.content === 'info') {
-        (new InfoAction()).onMessage(message)
+      if (action) {
+        action.onMessage(message)
       }
     })
 
