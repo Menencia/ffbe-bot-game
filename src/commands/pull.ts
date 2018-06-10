@@ -13,7 +13,7 @@ export class PullAction {
     message.author.send(`${units.length} units in the pool`)
 
     let rank
-    const rng = Math.random()
+    const rng = Math.ceil(Math.random() * 100)
     if (rng < 3) {
       rank = 5
     } else if (rng < 22) {
