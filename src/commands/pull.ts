@@ -1,5 +1,6 @@
 import { Message } from 'discord.js'
 import * as mongoose from 'mongoose'
+import fetch from 'node-fetch'
 
 export class PullAction {
 
