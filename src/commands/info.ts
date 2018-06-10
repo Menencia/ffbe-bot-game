@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
 import * as mongoose from 'mongoose'
 
-export class PlayAction {
+export class InfoAction {
 
   public onMessage(message: Message) {
 
@@ -12,15 +12,7 @@ export class PlayAction {
         if (err) {
           console.log(err)
         } else if (user) {
-          message.author.send('You\'re already playing')
-        } else {
-          userModel.create({
-            name: message.author.username,
-            id: message.author.id,
-            created: new Date()
-          }).then(() => {
-            message.author.send('You\'re now playing!')
-          })
+          message.author.send(user)
         }
       })
 

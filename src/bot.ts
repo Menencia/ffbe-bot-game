@@ -1,6 +1,7 @@
 import * as discord from 'discord.js'
 import { MongoError } from 'mongodb'
 import * as mongoose from 'mongoose'
+import { InfoAction } from './commands/info'
 import { PlayAction } from './commands/play'
 import { StopAction } from './commands/stop'
 
@@ -45,6 +46,9 @@ export class Bot {
       }
       if (message.content === 'stop') {
         (new StopAction()).onMessage(message)
+      }
+      if (message.content === 'info') {
+        (new InfoAction()).onMessage(message)
       }
     })
 
