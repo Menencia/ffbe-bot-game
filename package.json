@@ -7,7 +7,7 @@
     "watch": "node_modules/.bin/tsc -w",
     "build": "node_modules/.bin/tsc",
     "postinstall": "npm run build",
-    "start": "node dist/index.js"
+    "start": "NODE_ENV=production node dist/index.js"
   },
   "keywords": [],
   "author": "Menencia",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@types/mongoose": "^5.0.15",
     "discord.js": "^11.3.2",
+    "dotenv": "^6.0.0",
     "mongoose": "^5.1.4",
     "node-fetch": "^2.1.2"
   }
